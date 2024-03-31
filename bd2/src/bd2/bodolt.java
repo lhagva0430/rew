@@ -2,12 +2,12 @@ package bd2;
 
 public class bodolt {
 	
-	int hicheeltsag1_3=24;
-	int hicheelTsag4_8=34;
-	int hicheelTsag9_10=36;
-	int dundMin=45;   //dund sur 1tsag=45min 1978
-	int deedTsag=18;
-	int deedMin=90;  //deed sur 1tsag=90min 
+	int elemantaryClassTime = 24;
+	int middleClassTime = 34;
+	int highClassTime = 36;
+	int higherEdTime = 18;
+	int secondarySchoolTimeLimit = 45;   //dund sur 1tsag=45min 1978
+	int higherEdTimeLimit = 90;  //deed sur 1tsag=90min 
 	int subTime1_5=20;
 	int subTime6_12=30;
 	String fday="fri";
