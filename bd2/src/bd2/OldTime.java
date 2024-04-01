@@ -13,7 +13,7 @@ public class OldTime extends OldStudyDuration {
 	public int secondarySchoolTimeLimit = 45;   // хуучны дунд сургуулийн 1 цагийн хугацаа
 	public int higherEdTimeLimit = 90;  //дээд сургуулийн 1 цагийн хугацаа  
 	public OldTime(int elementaryTotalExtraDays, int middleTotalExtraDays, int highTotalExtraDays, int higherEdTotalExtraDays ) {
-		super(elementaryTotalExtraDays, middleTotalExtraDays, highTotalExtraDays, higherEdTotalExtraDays);
+		
 		
 	}
 }

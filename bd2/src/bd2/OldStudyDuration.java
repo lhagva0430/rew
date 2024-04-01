@@ -4,47 +4,36 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class OldStudyDuration {
-	public long elementaryTotalExtraDays;
-	public long middleTotalExtraDays;
-	public long highTotalExtraDays;
-	public long higherEdTotalExtraDays;
-    public OldStudyDuration(long elementaryTotalExtraDays, long middleTotalExtraDays, long highTotalExtraDays, long higherEdTotalExtraDays ) {
-    	this.elementaryTotalExtraDays = elementaryTotalExtraDays;
-    	this.middleTotalExtraDays = middleTotalExtraDays;
-    	this.highTotalExtraDays = highTotalExtraDays;
-    	this.higherEdTotalExtraDays = higherEdTotalExtraDays;
-        LocalDate elementarySchoolStartDate = LocalDate.of(1978, 9, 1);
-        LocalDate elementarySchoolEndDate = LocalDate.of(1981, 9, 1);
-        //бага анги
-        LocalDate middleSchoolStartDate = LocalDate.of(1981, 9, 1);
-        LocalDate middleSchoolEndDate = LocalDate.of(1986, 9, 1);
-        //дунд анги
-        LocalDate highSchoolStartDays = LocalDate.of(1986, 9, 1);
-        LocalDate highSchoolEndDays = LocalDate.of(1988, 9, 1); 
-        //ахлах анги
-        LocalDate higherEdStartDate = LocalDate.of(1988, 9, 1);
-        LocalDate higherEdEndDate = LocalDate.of(1993, 9, 1); 
-        //дээд сургууль
-        long elementarySchoolDays = getDaysBetween(elementarySchoolStartDate, elementarySchoolEndDate);
-        long middleSchoolDays = getDaysBetween(middleSchoolStartDate, middleSchoolEndDate);
-        long highSchoolDays = getDaysBetween(highSchoolStartDays, highSchoolEndDays);
-        long higherEdDate = getDaysBetween(higherEdStartDate, higherEdEndDate);
+    public long elementaryTotalExtraDays[] = new long[3];
+    public long middleTotalExtraDays[] = new long[5];
+    public long highTotalExtraDays[] = new long[2];
+    public long higherEdTotalExtraDays[] = new long[5];
+    
+    public OldStudyDuration() {
         
-        int elementaryNumberOfYears = 3;
-        int middleNumberOfYears = 5;
-        int highNumberOfYears = 2;
-        int higherEdNumberOfYears = 5;
-        long extraDaysPerYear = 30+31+31; // 6, 7, 8-р сарууд
+        long extraDaysPerYear = 30 + 31 + 31; // 6, 7, 8-р сарууд
 
-         elementaryTotalExtraDays = elementarySchoolDays - (extraDaysPerYear * elementaryNumberOfYears);
-         middleTotalExtraDays = middleSchoolDays - (extraDaysPerYear * middleNumberOfYears);
-         highTotalExtraDays = highSchoolDays - (extraDaysPerYear * highNumberOfYears);
-         higherEdTotalExtraDays = higherEdDate - (extraDaysPerYear * higherEdNumberOfYears );
-  
+        for (int i = 0; i < 15; i++) {
+        	int a = 1978 + i;
+            LocalDate startDate = LocalDate.of(a, 9, 1);
+            LocalDate endDate = LocalDate.of(a + 1, 9, 1);
+            long days = getDaysBetween(startDate, endDate);
+            System.out.println(days);
+
+            if (i < 3) {
+                elementaryTotalExtraDays[i] = days -  extraDaysPerYear;
+            } else if (i < 8) {
+                middleTotalExtraDays[i - 3] = days - extraDaysPerYear ;
+            } else if (i < 10) {
+                highTotalExtraDays[i - 8] = days - extraDaysPerYear ;
+            } else {
+                higherEdTotalExtraDays[i - 10] = days - extraDaysPerYear ;
+            }
+        }
     }
 
     public long getDaysBetween(LocalDate startDate, LocalDate endDate) {
         return ChronoUnit.DAYS.between(startDate, endDate);
     }
+
 }
-                         
