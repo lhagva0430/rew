@@ -1,6 +1,6 @@
 package bd2;
 
-public class bodolt {
+public class bodolt  {
 	
 	int elemantaryClassTime = 24;
 	int middleClassTime = 34;
