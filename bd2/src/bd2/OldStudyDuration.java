@@ -22,7 +22,8 @@ public class OldStudyDuration {
         		else if(i<=8) {
         			if(a==2) {
         				l-=2;
-        				a=1;}
+        				a=1;
+        			}
         			middle+=week*34+a*l;}
         		else if(i<=10){
         			if(a==2) {
@@ -91,12 +92,15 @@ public class OldStudyDuration {
     	}
     	return weekT*4;
     }
-    public float higheredD(int year,int  high) { // их дээд сургууль дадлагын хугацаа
+    public int higheredD(int year,int  high) { // их дээд сургууль дадлагын хугацаа
     	 //high- niit sursan 7 honog
     	int t=year,k,week=0;
     	if(t==2006) {k=4;}
     	else {k=5;}
     	week=8*k;
+    	return week;
+    }
+    public float dad(int  high,int week) {
     	return (float)week/high;
     }
 public int hYear(int year) { //өндөр жил олдог
