@@ -49,16 +49,51 @@ public int lSunday(int a) {
 }
 
 public int fMonday(int a) {
-	int jil=a-1978, b=jil;
-	int k = 0,l=0;
+	int day=5;
+	int k=a-1976;
 	int on=1978;
-		
-	return 1+k;
+	while(k-2>=0) {
+		if(on%4==0) {
+			if(day==2) {
+				day=7;
+			}
+			else if(day==1) {
+				day=6;
+			}
+			else {
+				day-=2;
+			}
+		}
+		else {
+			if(day==1) {
+				day=7;
+			}
+			else {
+				day-=1;
+			}
+		}
+		on+=1;
+		k-=1;
+	}
+	return day;
 }
-public void weekday(int a, int b) {
+public int weekday(int fday, int a) {
 	//hicheellej baigaa 7 honogiin toog bodoh
-	
+	int jil=a-1978, b=jil;
+	int l=0;
+	int on=1978;
+	while(jil>=0) {
+		if(fday==1) {
+		l+=39;	
+		}
+		else{
+			l+=38;
+		}
+		
+	}
+	return l;
 }
+
 public void hTsag(){
 	//hicheellej bgaa tsagiig tootsoh
 }
@@ -76,11 +111,10 @@ public void enjoyTime() {
 }
 public static void main(String arg[]) {
 	bodolt a=new bodolt();
-	int on=1981;
-	int l=a.lSunday(on);
-	int k=a.fMonday(on);
-	System.out.println(on+1+" on 5 sar suuliin sunday "+l);
-	System.out.println(on+" onii 9 sariin ehnii monday "+k);
+	int on=1986;
+	int b=a.fMonday(on);
+	int k=a.lSunday(b, on);
+	System.out.println(on+" k= "+k);
 }
 }
 

@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
 
-public class GamePanel extends JPanel implements ActionListener{
+public class GamePanel extends JPanel implements MouseListener , ActionListener{
 
     static final int SCREEN_WIDTH = 500;
     static final int SCREEN_HEIGHT = 350;
@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements ActionListener{
         this.setPreferredSize(new Dimension(SCREEN_WIDTH,SCREEN_HEIGHT));
         this.setBackground(Color.black);
         this.setFocusable(true);
-        this.addMouseMotionListener((MouseMotionListener) new mouseListener());
+        this.mouseClicked(null);
         startGame();
     }
     public void startGame() {
@@ -177,34 +177,42 @@ public class GamePanel extends JPanel implements ActionListener{
             }
         }
     }
-    public class mouseListener implements MouseListener{
-		@Override
-		public void mouseClicked(MouseEvent e) {
+   
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		int ButtonClickMask =e.getModifiersEx();
+		if((ButtonClickMask & InputEvent.BUTTON1_MASK)==
+				InputEvent.BUTTON1_MASK) {
+			if(direction != 'R') {
+                direction = 'L';
+            }
 		}
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-			 
-			// TODO Auto-generated method stub
-			if(SwingUtilities.isLeftMouseButton(e)) {
-				if(direction != 'R') {
-                    direction = 'L';
-                }
-			 }
-			 else if (SwingUtilities.isRightMouseButton(e)) {
-				 if(direction != 'L') {
-                     direction = 'R';
-                 }
-				 }
+		if((ButtonClickMask & InputEvent.BUTTON3_MASK)==
+				InputEvent.BUTTON3_MASK) {
+			if(direction != 'L') {
+                direction = 'R';
+            }
 		}
-		@Override
-		public void mouseEntered(MouseEvent e) {
-		}
-		@Override
-		public void mouseExited(MouseEvent e) {
-		}
-		@Override
-		public void mouseReleased(MouseEvent e) {
-		}
-    	}
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
