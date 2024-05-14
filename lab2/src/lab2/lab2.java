@@ -11,7 +11,6 @@ public static void main(String[] args) {
 // TODO Auto-generated method stub
 List<Integer> myList = new ArrayList<>();
 Scanner sc = new Scanner(System.in);
-boolean a=true;
 while(true) {
 System.out.println("1.элемент нэмэх");
 System.out.println("2.элемент хасах");
@@ -42,8 +41,7 @@ case 6:
 Sum(myList);
 break;
 case 7:
-System.exit(0); 
-System.out.println("wdni");
+System.exit(0); System.out.println("wdni");
 break;
 }
 }
